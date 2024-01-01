@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?&family=Poiret+One&&family=Quicksand:wght@400;600;700&family=Sanchez&display=swap');
 
 
 .mainPageBackGround {
@@ -7,8 +7,12 @@
 }
     
 .mainPageLogo{
-    font-family: 'Poiret One', sans-serif; 
-    font-size:7.3vmin; 
+    font-family: 'Quicksand', sans-serif;
+    font-weight:600;
+    font-size:8vmin;  
+    color:white;
+    -webkit-text-stroke: 1.2px rgb(147, 95, 88);  
+    text-shadow: 0px 4px 4px rgb(156,106,100);
     position: absolute;
     top: 43%;
     left: 50%;
@@ -16,19 +20,82 @@
 }
 
 .mainPageSubtitle{
-    font-family: 'Poiret One', sans-serif;
+    font-family: 'Sanchez', serif;
     font-size:2.4vmin;
+    color:rgb(188,129,121);
     position:absolute;
-    top:50%; 
+    top:51%; 
     left:50%;
     transform: translate(-50%, -50%);
 }
 
 .buttonGroup{
     position:absolute;
-    top:58%;
+    top:59%;
     left:50%;
     transform: translate(-50%, -50%);
+    
 } 
 
+.playButton,
+.ListenButton,
+.GalleryButton{ 
+    font-family: 'Quicksand', sans-serif;
+    font-size:2.4vmin;
+    margin-right:1.5vmin;
+    background-color: rgb(232,222,212);
+    border-radius: 20px;
+    border-width:1.33px; 
+    box-shadow:  0px 2px 4px rgb(188, 187, 187);
+    border-color:transparent;
+    padding-top:3px;
+    padding-bottom:5px;
+    padding-left:13px;
+    padding-right:13px;
+    cursor: pointer; 
+}
+
+.playButton:hover,
+.ListenButton:hover,
+.GalleryButton:hover{
+    color:white;
+    background-color:rgb(188,129,121);
+}
  
+.melody8thNote{
+    position:absolute;
+    top:30%;
+    left:30%; 
+    animation: rotateAnimation 3s linear infinite;
+    transform-style: preserve-3d;  
+}
+
+.melody2ndNoteBig{
+    position:absolute;
+    top:30%;
+    left:64%; 
+    animation: rotateAnimation 3s linear infinite;
+    transform-style: preserve-3d;  
+}
+
+.melody2ndNoteSmall{
+    position:absolute;
+    top:19%;
+    left:56%; 
+    animation: rotateAnimation 3s linear infinite;
+    transform-style: preserve-3d;  
+}
+@keyframes rotateAnimation {
+    0% {
+        transform: translateX(0) rotate(0deg);  
+    } 
+    25%{
+        transform:
+    }
+    50% {
+        transform: translateX(20px) rotate(0deg);  
+    }
+    100% {
+        transform: translateX(0) rotate(0deg);  
+    } 
+}
