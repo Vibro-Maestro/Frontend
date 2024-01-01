@@ -1,8 +1,15 @@
 import './Main.css';  
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';  
 
 const Main = () => {     
   const [verticalHeight, setVerticalHeight] = useState(0); 
+
+  const navigate = useNavigate(); 
+  const handleClick = (path) => {
+    navigate(path);
+  };
+
   useEffect(() => {
     function measureAndDisplayHeight() {
       const newVerticalHeight = window.innerHeight;
@@ -47,9 +54,9 @@ const Main = () => {
       </div>
 
       <div className="buttonGroup">
-        <button className="playButton">Play</button>
-        <button className="ListenButton">Listen</button>
-        <button className="GalleryButton">Gallery</button>
+        <button className="playButton" onClick={() => handleClick('/MusicSelect')}>Play</button>
+        <button className="ListenButton" onClick={() => handleClick('/MusicSelect')}>Listen</button>
+        <button className="GalleryButton" onClick={() => handleClick('/Gallery')}>Gallery</button>
       </div>
     </div>
     </>

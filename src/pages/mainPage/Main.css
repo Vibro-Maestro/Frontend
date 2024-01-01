@@ -21,10 +21,10 @@
 
 .mainPageSubtitle{
     font-family: 'Sanchez', serif;
-    font-size:2.4vmin;
+    font-size:2.3vmin;
     color:rgb(188,129,121);
     position:absolute;
-    top:51%; 
+    top:51.4%; 
     left:50%;
     transform: translate(-50%, -50%);
 }
@@ -59,7 +59,7 @@
 .ListenButton:hover,
 .GalleryButton:hover{
     color:white;
-    background-color:rgb(188,129,121);
+    background-color:rgb(188,129,121); 
 }
  
 .melody8thNote{
@@ -68,6 +68,7 @@
     left:30%; 
     animation: rotateAnimation 3s linear infinite;
     transform-style: preserve-3d;  
+    
 }
 
 .melody2ndNoteBig{
