@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?&family=Poiret+One&display=swap');
+
+
+.mainPageBackGround {
+    width: 100%;
+    height: auto;
+}
+    
+.mainPageLogo{
+    font-family: 'Poiret One', sans-serif; 
+    font-size:7.3vmin; 
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mainPageSubtitle{
+    font-family: 'Poiret One', sans-serif;
+    font-size:2.4vmin;
+    position:absolute;
+    top:50%; 
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.buttonGroup{
+    position:absolute;
+    top:58%;
+    left:50%;
+    transform: translate(-50%, -50%);
+} 
+
+ 
