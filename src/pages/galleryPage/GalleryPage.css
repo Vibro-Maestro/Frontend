@@ -1,0 +1,12 @@
+.boxContainer{
+    flex-direction: row;
+    margin-left:100px;
+}
+
+.boxItem{
+    margin-right: 100px;
+}
+
+.boxItem:last-child {
+    margin-right: 0;
+  }

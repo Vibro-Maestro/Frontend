@@ -1,0 +1,15 @@
+
+.musicSelectPageBackground {
+    width: 100%;
+    height: auto;
+}
+
+.musicBox{
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    box-shadow: 0px 4px 4px rgb(156,106,100);
+}
+  
