@@ -1,9 +1,9 @@
-import './MusicSelectPage.css';
+import './PlayPage.css';
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import Wrapper from '../../components/Wrapper'; 
-import Box from '../../components/MusicBox';
-const MusicSelectPage = () => {
+import Wrapper from '../../components/Wrapper';
+
+const PlayPage = () => {
   const [verticalHeight, setVerticalHeight] = useState(0);
 
   const navigate = useNavigate();
@@ -28,23 +28,19 @@ const MusicSelectPage = () => {
   return (
     <>
     <Wrapper>
-      <div className="musicSelectPage">
-        <img
+         <img
           className="musicSelectPageBackground"
           src={`${process.env.PUBLIC_URL}/img/musicSelectBackground.jpg`}
           style={{ height: `${verticalHeight}px` }}
           alt="Music Select Background"
         />
-        <div className="mainPageLogo"
-        style={{top:'10%'}}>Music Select</div> 
-      </div>
-      <Box>
-      </Box> 
-      
+        <div className='MusicSheet'>악보</div>
+        <div className='VibeImage'>분위기 사진</div>
+        <div className="Piano">피아노 건반</div> 
       </Wrapper>
     </>
     
   );
 };
 
-export default MusicSelectPage;
+export default PlayPage;
