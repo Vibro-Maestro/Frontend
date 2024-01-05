@@ -1,7 +1,8 @@
 import './PlayPage.css';
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import Wrapper from '../../components/Wrapper';
+import Wrapper from '../../components/Wrapper';  
+import Keyboard from '../../components/Keyboard';
 
 const PlayPage = () => {
   const [verticalHeight, setVerticalHeight] = useState(0);
@@ -28,15 +29,16 @@ const PlayPage = () => {
   return (
     <>
     <Wrapper>
-         <img
+        <img
           className="musicSelectPageBackground"
           src={`${process.env.PUBLIC_URL}/img/musicSelectBackground.jpg`}
           style={{ height: `${verticalHeight}px` }}
           alt="Music Select Background"
         />
         <div className='MusicSheet'>악보</div>
-        <div className='VibeImage'>분위기 사진</div>
-        <div className="Piano">피아노 건반</div> 
+        <div className='VibeImage'>분위기 사진</div>  
+        <div className="PlayMenu"><Keyboard></Keyboard> </div>
+        
       </Wrapper>
     </>
     
