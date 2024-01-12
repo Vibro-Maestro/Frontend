@@ -16,7 +16,7 @@ const MusicBox = () => {
              src={`${process.env.PUBLIC_URL}/img/pinkFlower.jpg`}  
              /> 
         </div>
-        <div className="Description">
+        <div className="MusicDescription">
             <div className="Dot">　</div>
             <div className="Player">Bach</div>
             <div className="MusicTitle">Minuet in G major</div>
