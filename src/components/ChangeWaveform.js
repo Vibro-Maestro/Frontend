@@ -1,4 +1,5 @@
 import React from "react";
+import "./ChangeWaveform.css"; // Import your CSS file
 
 const ChangeWaveform = ({ inputChange, waveform }) => {
   return (
@@ -12,7 +13,7 @@ const ChangeWaveform = ({ inputChange, waveform }) => {
           value="sine"
           defaultChecked={waveform === "sine"}
         />
-        <label htmlFor="sine">Sine</label><br />
+        <label htmlFor="sine" className="radio-label">Sine</label><br />
         <input
           type="radio"
           name="waveform"
@@ -20,7 +21,7 @@ const ChangeWaveform = ({ inputChange, waveform }) => {
           value="square"
           defaultChecked={waveform === "square"}
         />
-        <label htmlFor="square">Square</label><br />
+        <label htmlFor="square" className="radio-label">Square</label><br />
         <input
           type="radio"
           name="waveform"
@@ -28,7 +29,7 @@ const ChangeWaveform = ({ inputChange, waveform }) => {
           value="triangle"
           defaultChecked={waveform === "triangle"}
         />
-        <label htmlFor="triangle">Triangle</label><br />
+        <label htmlFor="triangle" className="radio-label">Triangle</label><br />
         <input
           type="radio"
           name="waveform"
@@ -36,7 +37,7 @@ const ChangeWaveform = ({ inputChange, waveform }) => {
           value="sawtooth"
           defaultChecked={waveform === "sawtooth"}
         />
-        <label htmlFor="sawtooth">Sawtooth</label>
+        <label htmlFor="sawtooth" className="radio-label">Sawtooth</label>
       </div>
     </div>
   );
