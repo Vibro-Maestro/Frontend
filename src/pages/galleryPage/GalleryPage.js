@@ -9,9 +9,18 @@ const GalleryPage =() => {
     const navigate = useNavigate();
     const handleClick = (path) => {
       navigate(path);
-    };
-  
+    };  
     useEffect(() => {
+      var boxItems = document.querySelectorAll(".boxItem");
+
+      // Initialize the left position
+      var currentLeft = 0;
+      
+      boxItems.forEach(function(boxItem) { 
+        boxItem.style.left = currentLeft + "px"; 
+        currentLeft += 300;
+      });
+
       function measureAndDisplayHeight() {
         const newVerticalHeight = window.innerHeight;
         setVerticalHeight(newVerticalHeight);
@@ -36,8 +45,8 @@ const GalleryPage =() => {
             <div className="mainPageLogo"
               style={{top:'10%'}}>Gallery</div>   
             <div className="boxContainer">
-            <Box className="boxItem" /> 
-            <Box className="boxItem" /> 
+            <Box class="boxItem"></Box>
+            <Box class="boxItem"></Box>
             </div>
           </Wrapper>
         </>

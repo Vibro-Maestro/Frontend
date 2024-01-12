@@ -1,12 +1,11 @@
 .container {
     overflow-x: scroll;
     overflow-y: hidden;
-    width: 660px;
-    height: 110px;
+    width: 100%; 
     white-space: nowrap;
     margin: 10px;
   }
-  
+   
   .keyboard {
     width: auto;
     padding: 0;
@@ -22,8 +21,8 @@
       sans-serif;
     border: 1px solid black;
     border-radius: 5px;
-    width: 20px;
-    height: 80px;
+    width: 30px;
+    height: 200px;
     text-align: center;
     box-shadow: 2px 2px darkgray;
     display: inline-block;
