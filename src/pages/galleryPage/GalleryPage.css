@@ -1,12 +1,10 @@
-.boxContainer{
-    flex-direction: row;
-    margin-left:100px;
-}
-
-.boxItem{
-    margin-right: 100px;
-}
-
-.boxItem:last-child {
-    margin-right: 0;
-  }
+ 
+ .galleryContainer {
+    position:absolute; 
+    background-color: aqua;
+    z-index:1;
+    width:100%;
+    top:28%;
+    display:flex; 
+} 
+ 

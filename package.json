@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "framer-motion": "^10.16.16",
     "lodash": "^4.17.21",
+    "material-icons": "^1.13.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-piano": "^3.1.3",

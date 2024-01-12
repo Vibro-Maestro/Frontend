@@ -6,7 +6,7 @@ import Oscillator from '../../components/Oscillator';
 import ChangeWaveform from '../../components/ChangeWaveform';
 import Gain from '../../components/Gain';
 import Filter from '../../components/Filter';  
-const PlayPage = () => {
+const ListenPage = () => {
 
   const MelodyContainerRef = useRef(null);
   const [verticalHeight, setVerticalHeight] = useState(0); 
@@ -180,17 +180,8 @@ const PlayPage = () => {
              gainValue={effects.gainValue}  
              onMidiNumberChange={(midiNumber) => checkMatchingMelody(midiNumber)}
            />
-        </div>
-      <div className="effects">
-        <ChangeWaveform className="changeWaveForm" inputChange={inputChange} waveform={effects.waveform}/>
-        <Gain className="gain" inputChange={inputChange} gainValue={effects.gainValue} /> 
-        <Filter
-          className="filter"
-          inputChange={inputChange}
-          filterType={effects.filterType}
-          filterFreq={effects.filterFreq}/> 
-      </div>
-      </div>
+        </div> 
+        </div> 
         
       </Wrapper>
     </>
@@ -198,4 +189,4 @@ const PlayPage = () => {
   );
 };
 
-export default PlayPage;
+export default ListenPage;

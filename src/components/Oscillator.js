@@ -7,7 +7,7 @@ let audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let gainNode = audioContext.createGain();
 let biquadFilter = audioContext.createBiquadFilter();
 
-const Oscillator = ({ waveform, filterType, filterFreq, gainValue }) => {
+const Oscillator = ({ waveform, filterType, filterFreq, gainValue,onMidiNumberChange }) => {
   const [oscillators, setOscillators] = useState({});
   const [keyboardWidth, setKeyboardWidth] = useState(0);
 
@@ -23,7 +23,7 @@ const Oscillator = ({ waveform, filterType, filterFreq, gainValue }) => {
     return () => {
       window.removeEventListener('resize', measureAndDisplayHeight);
     };
-  }, []); // Empty dependency array to run the effect only once
+  }, []);  
 
   useEffect(() => {
     let audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -49,7 +49,9 @@ const Oscillator = ({ waveform, filterType, filterFreq, gainValue }) => {
     gainNode.gain.value = gainValue;
     oscillator.frequency.value = Math.pow(2, (midiNumber - 69) / 12) * 440;
     setOscillators({ ...oscillators, [midiNumber]: oscillator });
-    oscillator.start();
+    oscillator.start(); 
+
+    onMidiNumberChange(midiNumber);
   };
 
   const stopSound = (midiNumber) => {

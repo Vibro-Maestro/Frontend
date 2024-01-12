@@ -8,29 +8,24 @@ const MusicBox = () => {
     navigate(path);
   };
 
-  return (
-    <div className="Box"> 
+  return (  
+    <div className="music-Box"> 
         <div className="imgWrapper">
           <img
              className="ImageInMusicBox" 
              src={`${process.env.PUBLIC_URL}/img/pinkFlower.jpg`}  
-             /> 
-        </div>
-        <div className="MusicDescription">
-            <div className="Dot">　</div>
+          ></img>
+          <div className="Dot">　</div>
+        </div> 
+        <div className="MusicDescription"> 
             <div className="Player">Bach</div>
             <div className="MusicTitle">Minuet in G major</div>
-            <div className="Bpm">105 bpm</div>
-            
-        </div> 
+            <div className="Bpm">105 bpm</div> 
+        </div>  
         <div className="ButtonContainer">
-            <button className="SelectButton" onClick={() => handleClick('/Play')}>
-                Select
-            </button>
-      </div>
-      
-        
-    </div>
+            <button className="SelectButton" onClick={() => handleClick('/Play')}>Select</button>
+        </div> 
+    </div> 
   );
 };
 

@@ -1,21 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?&family=Poiret+One&&family=Quicksand:wght@400;600;700&family=Sanchez&display=swap');
 
 
-.Box{
-    
-    background-color: rgb(243,240,232);
-    position:absolute;
-    top:56%;
-    left:50%;
+.music-Box{   
+    position:fixed; 
+    background-color: rgb(243,240,232); 
     width:38vmin;
-    height:60%;
-    transform: translate(-50%, -50%);
+    height:60%; 
     border-radius: 3dvb; 
-    box-shadow:10px 110px 20px rgba(0,0,0,.1);
+    box-shadow:10px 110px 20px rgba(0,0,0,.1); 
 }
  
 .imgWrapper {
-    position: relative;
+    position: relative; 
     width: 25vmin;
     height: 25vmin;
     margin-left: auto;
@@ -23,26 +19,22 @@
 }
 
 .imgWrapper img {
-    position: absolute;
-    top: 24%;
-    left: 0;
+    position: relative;
+    top: 24%; 
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    margin: auto;
+    object-fit: cover; 
     border-radius: 300dvb;
-}
+} 
 
- 
-
-.Dot{
-    position:absolute;
-    background-color: white;
-    border-radius: 100px; 
-    width:3.9vmin;
-    height:3.9vmin;
-    top:32%;
-    left:50%; 
+.Dot{ 
+    position: absolute;
+    background-color: rgb(243,240,232);
+    border-radius: 100px;
+    width: 3.9vmin;
+    height: 3.9vmin;
+    top: 75%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -52,30 +44,27 @@
     font-family: 'Sanchez', serif;
     font-size:3vmin;
     font-weight:600;
-    color:rgb(75,67,60); 
-     
-    
+    color:rgb(75,67,60);  
 }
 
 .ButtonContainer{
     text-align: center; 
 }
+
 .SelectButton{
     font-family: 'Quicksand', sans-serif;
     font-weight:400;
     font-size:2.7vmin;  
-    color:white;
-    
+    color:white; 
     background-color: rgb(188, 129, 121);
     border:transparent;
     width:30%;
     height:10%; 
     margin-top:10%;
     margin-left: auto;
-    margin-right:auto;
-    
+    margin-right:auto; 
     border-radius: 20px;
-    border-width:1.33px; 
+    border-width: 1.33px; 
     box-shadow:  0px 2px 4px rgb(188, 187, 187);
     border-color:transparent; 
     cursor: pointer; 

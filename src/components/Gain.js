@@ -12,7 +12,7 @@ const Gain = ({ inputChange, gainValue }) => {
           max="1"
           value={gainValue}
           onChange={inputChange}
-          step="0.01"
+          step="0.01"   
         />
       </div>
       {gainValue}

@@ -1,58 +1,52 @@
 import './GalleryPage.css';  
 import Wrapper from '../../components/Wrapper';
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import Box from '../../components/MusicBox';
-const GalleryPage =() => { 
-    const [verticalHeight, setVerticalHeight] = useState(0);
 
-    const navigate = useNavigate();
-    const handleClick = (path) => {
-      navigate(path);
-    };  
-    useEffect(() => {
-      var boxItems = document.querySelectorAll(".boxItem");
+const GalleryPage = () => { 
+  const [verticalHeight, setVerticalHeight] = useState(0); 
+  const navigate = useNavigate();
 
-      // Initialize the left position
-      var currentLeft = 0;
-      
-      boxItems.forEach(function(boxItem) { 
-        boxItem.style.left = currentLeft + "px"; 
-        currentLeft += 300;
-      });
+  const handleClick = (path) => {
+    navigate(path);
+  };
 
-      function measureAndDisplayHeight() {
-        const newVerticalHeight = window.innerHeight;
-        setVerticalHeight(newVerticalHeight);
-      }
-  
-      measureAndDisplayHeight();
-      window.addEventListener('resize', measureAndDisplayHeight);
-  
-      return () => {
-        window.removeEventListener('resize', measureAndDisplayHeight);
-      };
-    }, []);
-    return (
-        <>
-        <Wrapper>
-             <img
-              className="musicSelectPageBackground"
-              src={`${process.env.PUBLIC_URL}/img/musicSelectBackground.jpg`}
-              style={{ height: `${verticalHeight}px` }}
-              alt="Music Select Background"
-            />
-            <div className="mainPageLogo"
-              style={{top:'10%'}}>Gallery</div>   
-            <div className="boxContainer">
-            <Box class="boxItem"></Box>
-            <Box class="boxItem"></Box>
-            </div>
-          </Wrapper>
-        </>
+  useEffect(() => {
+    function measureAndDisplayHeight() {
+      const newVerticalHeight = window.innerHeight;
+      setVerticalHeight(newVerticalHeight);
+    } 
+    measureAndDisplayHeight();
+    window.addEventListener('resize', measureAndDisplayHeight); 
+    return () => {
+      window.removeEventListener('resize', measureAndDisplayHeight);
+    };
+  }, []);
+
+  return (
+    <>
+      <Wrapper>
         
-      );
-}
+        <img
+          className="musicSelectPageBackground"
+          src={`${process.env.PUBLIC_URL}/img/musicSelectBackground.jpg`}
+          style={{ height: `${verticalHeight}px` }}
+          alt="Music Select Background"
+        />
+        <div className="mainPageLogo" style={{ top: '10%' }}>Gallery</div> 
+        <div className="home-icon" onClick={() => handleClick('/')}><span className="material-icons">home</span></div>
+        <div className="galleryContainer">
+           <Box class='productBox'></Box>
+           <Box class='productBox'></Box>
+           <Box class='productBox'></Box>
+           <Box class='productBox'></Box>
+        </div>
 
+
+      </Wrapper>
+    </>
+  );
+};
 
 export default GalleryPage;
