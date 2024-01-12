@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Piano, KeyboardShortcuts, MidiNumbers } from "react-piano";
 import "react-piano/dist/styles.css";
+import "./Oscillator.css";
 
 let audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let gainNode = audioContext.createGain();
@@ -8,8 +9,33 @@ let biquadFilter = audioContext.createBiquadFilter();
 
 const Oscillator = ({ waveform, filterType, filterFreq, gainValue }) => {
   const [oscillators, setOscillators] = useState({});
+  const [keyboardWidth, setKeyboardWidth] = useState(0);
 
-  const playSound = midiNumber => {
+  useEffect(() => {
+    function measureAndDisplayHeight() {
+      const newKeyboardWidth = window.innerHeight;
+      setKeyboardWidth(newKeyboardWidth);
+    }
+
+    measureAndDisplayHeight();
+    window.addEventListener('resize', measureAndDisplayHeight);
+
+    return () => {
+      window.removeEventListener('resize', measureAndDisplayHeight);
+    };
+  }, []); // Empty dependency array to run the effect only once
+
+  useEffect(() => {
+    let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    let gainNode = audioContext.createGain();
+    let biquadFilter = audioContext.createBiquadFilter();
+
+    return () => {
+      audioContext.close();
+    };
+  }, []); // Empty dependency array to run the effect only once
+
+  const playSound = (midiNumber) => {
     let oscillator = audioContext.createOscillator();
     // Waveform type
     oscillator.type = waveform;
@@ -26,7 +52,7 @@ const Oscillator = ({ waveform, filterType, filterFreq, gainValue }) => {
     oscillator.start();
   };
 
-  const stopSound = midiNumber => {
+  const stopSound = (midiNumber) => {
     oscillators[midiNumber].stop();
     delete oscillators[midiNumber];
   };
@@ -37,19 +63,20 @@ const Oscillator = ({ waveform, filterType, filterFreq, gainValue }) => {
   const keyboardShortcuts = KeyboardShortcuts.create({
     firstNote: firstNote,
     lastNote: lastNote,
-    keyboardConfig: KeyboardShortcuts.HOME_ROW
+    keyboardConfig: KeyboardShortcuts.HOME_ROW,
   });
 
   return (
     <Piano
+      className="keyBoard"
       noteRange={{ first: firstNote, last: lastNote }}
-      playNote={midiNumber => {
+      playNote={(midiNumber) => {
         playSound(midiNumber);
       }}
-      stopNote={midiNumber => {
+      stopNote={(midiNumber) => {
         stopSound(midiNumber);
       }}
-      width={400}
+      width={keyboardWidth}
       keyboardShortcuts={keyboardShortcuts}
     />
   );

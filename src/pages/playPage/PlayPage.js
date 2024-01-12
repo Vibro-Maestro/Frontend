@@ -1,8 +1,7 @@
 import './PlayPage.css';
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState, useRef } from 'react';
-import Wrapper from '../../components/Wrapper';  
-import Keyboard from '../../components/Keyboard'; 
+import Wrapper from '../../components/Wrapper';   
 import Oscillator from '../../components/Oscillator';
 import ChangeWaveform from '../../components/ChangeWaveform';
 import Gain from '../../components/Gain';
@@ -46,13 +45,26 @@ const PlayPage = () => {
 
   useEffect(() => { 
     function decideMelody() {
-      melodyArr.forEach((note, i) => {
+      const loadImagePromises = melodyArr.map((note, i) => {
         yCoordinate[i] = yCoordinateMap[note];
         let newImage = new Image();
         newImage.src = `${process.env.PUBLIC_URL}/img/note${melodyBeat[i]}.png`;
-        imageArray.push(newImage);
+    
+        return new Promise((resolve, reject) => {
+          newImage.onload = () => resolve(newImage);
+          newImage.onerror = reject;
+        });
       });
-    } 
+    
+      Promise.all(loadImagePromises)
+        .then(images => {
+          imageArray = images.filter(image => image !== null);  //null값 안 들어가게 하기
+          displayMelody();
+        })
+        .catch(error => {
+          console.error("이미지 로딩 에러", error);
+        });
+    }
  
     function displayMelody() {
       let currentLeft = 10;
@@ -61,11 +73,11 @@ const PlayPage = () => {
         imgElement.src = image.src;
         imgElement.alt = `Note ${i}`;
         imgElement.style.position = 'absolute';
-        imgElement.style.left = `${currentLeft}vmax`; // Set the current x-coordinate
+        imgElement.style.left = `${currentLeft}vmax`;  
         imgElement.style.top = `${yCoordinate[i]}vmax`; 
         imgElement.style.width = '4vmax'; 
         MelodyContainerRef.current.appendChild(imgElement); 
-        currentLeft += interval[i]; 
+        currentLeft += interval[i];
       });
     }
  
@@ -109,24 +121,25 @@ const PlayPage = () => {
             src={`${process.env.PUBLIC_URL}/img/pinkFlower.jpg`}></img>
         </div>  
 
-        <div className="PlayMenu">
+      <div className="PlayMenu">
         <div className="piano">
-        <Oscillator
-          waveform={effects.waveform}
-          filterType={effects.filterType}
-          filterFreq={effects.filterFreq}
-          gainValue={effects.gainValue}
-        />
-      </div>
+            <Oscillator
+             waveform={effects.waveform}
+              filterType={effects.filterType}
+             filterFreq={effects.filterFreq}
+              gainValue={effects.gainValue} 
+           />
+          </div>
       <div className="effects">
-        <ChangeWaveform inputChange={inputChange} waveform={effects.waveform} />
-        <Gain inputChange={inputChange} gainValue={effects.gainValue} />
+        <ChangeWaveform className="changeWaveForm" inputChange={inputChange} waveform={effects.waveform} />
+        <Gain className="gain" inputChange={inputChange} gainValue={effects.gainValue} />
         <Filter
+          className="filter"
           inputChange={inputChange}
           filterType={effects.filterType}
-          filterFreq={effects.filterFreq}
-        />
-      </div></div>
+          filterFreq={effects.filterFreq}  /> 
+      </div>
+      </div>
         <div className="Description">It feels like a fresh flower garden.</div>
       </Wrapper>
     </>

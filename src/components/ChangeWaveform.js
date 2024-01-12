@@ -12,7 +12,7 @@ const ChangeWaveform = ({ inputChange, waveform }) => {
           value="sine"
           defaultChecked={waveform === "sine"}
         />
-        <label htmlFor="sine">Sine</label>
+        <label htmlFor="sine">Sine</label><br />
         <input
           type="radio"
           name="waveform"
@@ -20,7 +20,7 @@ const ChangeWaveform = ({ inputChange, waveform }) => {
           value="square"
           defaultChecked={waveform === "square"}
         />
-        <label htmlFor="square">Square</label>
+        <label htmlFor="square">Square</label><br />
         <input
           type="radio"
           name="waveform"
@@ -28,7 +28,7 @@ const ChangeWaveform = ({ inputChange, waveform }) => {
           value="triangle"
           defaultChecked={waveform === "triangle"}
         />
-        <label htmlFor="triangle">Triangle</label>
+        <label htmlFor="triangle">Triangle</label><br />
         <input
           type="radio"
           name="waveform"

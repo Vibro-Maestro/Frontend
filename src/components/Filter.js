@@ -10,7 +10,7 @@ const Filter = ({ inputChange, filterFreq, filterType }) => {
         value="lowpass"
         defaultChecked={filterType === "lowpass"}
       />
-      <label htmlFor="lowpass">Lowpass</label>
+      <label htmlFor="lowpass">Lowpass</label><br />
       <input
         type="radio"
         name="filterType"
@@ -18,7 +18,7 @@ const Filter = ({ inputChange, filterFreq, filterType }) => {
         value="bandpass"
         defaultChecked={filterType === "bandpass"}
       />
-      <label htmlFor="bandpass">Bandpass</label>
+      <label htmlFor="bandpass">Bandpass</label><br />
       <input
         type="radio"
         name="filterType"
